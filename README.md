@@ -3,6 +3,17 @@
 Practice GnuPG against a friendly server: upload your public key, then encrypt, sign,
 decrypt and verify messages using the real `gpg` CLI. Live at **https://pgpractice.appfarms.org**.
 
+## Status - first draft 11/22/2026
+
+<img width="941" height="1058" alt="image" src="https://github.com/user-attachments/assets/0fb1b339-d0bc-421d-8fc1-35d9e18ab735" />
+
+Finally vibe coded a first draft of Aaron KC0WIH's idea https://pgpractice.appfarms.org/ when I played through this morning it's ok.
+
+
+Feels like telling claude "I'd like it to run on the free tier of my CloudFlare account." helps with many ideas.
+
+## Notes
+
 Runs on the Cloudflare free tier: one Worker (API + static assets), D1, and a daily cron.
 See [PLAN.md](PLAN.md) for the design.
 
