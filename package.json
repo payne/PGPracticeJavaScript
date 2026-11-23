@@ -1,0 +1,31 @@
+{
+  "name": "pgpractice",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build && wrangler dev",
+    "deploy": "vite build && wrangler deploy",
+    "typecheck": "tsc --noEmit -p tsconfig.worker.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "e2e": "bash test/e2e.sh",
+    "gen-server-key": "node scripts/gen-server-key.mjs",
+    "db:migrate:local": "wrangler d1 migrations apply pgpractice --local",
+    "db:migrate:remote": "wrangler d1 migrations apply pgpractice --remote"
+  },
+  "dependencies": {
+    "hono": "^4.13.20",
+    "openpgp": "^6.3.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261123.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1",
+    "wrangler": "^4.166.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261119.1": true
+  }
+}

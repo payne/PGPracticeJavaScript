@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pgpractice",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "pgpractice.appfarms.org", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/.well-known/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pgpractice",
+      "database_id": "e15cc47b-bfb8-4354-bfbe-778133ca28c1",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": { "crons": ["17 3 * * *"] },
+  "vars": {
+    "SERVER_EMAIL": "practice@pgpractice.appfarms.org",
+    "RETENTION_DAYS": "30"
+  },
+  "observability": { "enabled": true }
+}
